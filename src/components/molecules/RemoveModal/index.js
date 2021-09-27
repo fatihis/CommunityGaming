@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import Modal from "react-modal";
+import PropTypes from "prop-types";
 import { NomineeContext } from "../../../utils/contexts/NomineeContext";
 import { TextBox } from "../../atoms/TextBox";
 import { ActionButton } from "../ActionButton";
@@ -16,15 +17,10 @@ const customStyles = {
   },
 };
 
-// Make sure to bind modal to your appElement (https://reactcommunity.org/react-modal/accessibility/)
 Modal.setAppElement("body");
 
 export const RemoveModal = ({ id, isOpen, setIsOpen }) => {
   const nomineesCtx = useContext(NomineeContext);
-
-  function openModal() {
-    setIsOpen(true);
-  }
 
   function closeModal() {
     setIsOpen(false);
@@ -79,4 +75,10 @@ export const RemoveModal = ({ id, isOpen, setIsOpen }) => {
       </Modal>
     </div>
   );
+};
+
+RemoveModal.propTypes = {
+  id: PropTypes.any.isRequired,
+  isOpen: PropTypes.bool.isRequired,
+  setIsOpen: PropTypes.func.isRequired,
 };

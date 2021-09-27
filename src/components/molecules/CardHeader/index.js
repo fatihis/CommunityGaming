@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 import { SimpleImage } from "../../atoms/SimpleImage";
 import dota from "../../../assets/games/dota2jpg.jpg";
 import { SquaredTextBlock } from "../SquaredTextBlock";
-import { findTournaments } from "../../../utils/hooks/findTournaments";
+import PropTypes from "prop-types";
 import { NomineeContext } from "../../../utils/contexts/NomineeContext";
 export const CardHeader = ({ image, id }) => {
   const [dataState, setDataState] = useState({
@@ -25,4 +25,9 @@ export const CardHeader = ({ image, id }) => {
       </div>
     </div>
   );
+};
+
+CardHeader.propTypes = {
+  id: PropTypes.any.isRequired,
+  image: PropTypes.any,
 };

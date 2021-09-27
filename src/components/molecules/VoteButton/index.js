@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { Button } from "../../atoms/Button";
 import upVoteIcon from "../../../assets/votes/UpVote.png";
 import downVoteIcon from "../../../assets/votes/DownVote.png";
@@ -13,7 +14,7 @@ export const VoteButton = ({ onClick, type, classes, ...properties }) => {
           onClick={onClick}
           classes={
             classes +
-            "w-0.5 h-6 max-w-xs text-center text-white py-2 px-4 turquoise  flex items-center gap-x-1.5"
+            "  h-6 max-w-xs text-center text-white py-2 px-4 turquoise  flex items-center gap-x-1.5"
           }
           style={{ maxWidth: "4.2rem" }}
           {...properties}
@@ -30,7 +31,7 @@ export const VoteButton = ({ onClick, type, classes, ...properties }) => {
           onClick={onClick}
           classes={
             classes +
-            "w-0.5 h-6 max-w-xs text-center text-white py-2 px-4 bg-white hover:bg-gray-100 turquoise-border  flex items-center justify-center gap-x-1.5"
+            "  h-6 max-w-xs text-center text-white py-2 px-4 bg-white hover:bg-gray-100 turquoise-border  flex items-center justify-center gap-x-1.5"
           }
           style={{ maxWidth: "4.2rem" }}
           {...properties}
@@ -45,4 +46,10 @@ export const VoteButton = ({ onClick, type, classes, ...properties }) => {
       ) : null}
     </div>
   );
+};
+
+VoteButton.propTypes = {
+  onClick: PropTypes.func.isRequired,
+  type: PropTypes.string.isRequired,
+  classes: PropTypes.string,
 };

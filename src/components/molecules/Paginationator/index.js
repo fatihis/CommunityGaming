@@ -1,3 +1,5 @@
+import React from "react";
+import PropTypes from "prop-types";
 import { ActionButton } from "../ActionButton";
 
 export const Paginationator = ({
@@ -11,7 +13,7 @@ export const Paginationator = ({
     pageNumbers.push(i);
   }
   return (
-    <div className="paginator flex mt-6 flex items-center justify-center">
+    <div className="paginator flex mt-6 mb-6 flex items-center justify-center">
       {pageNumbers.map((number) =>
         number.toString() == currentPage ? (
           <ActionButton
@@ -31,4 +33,9 @@ export const Paginationator = ({
       )}
     </div>
   );
+};
+Paginationator.propTypes = {
+  nomineePerPage: PropTypes.any.isRequired,
+  totalNominees: PropTypes.any.isRequired,
+  currentPage: PropTypes.any.isRequired,
 };

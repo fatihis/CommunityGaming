@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
+import PropTypes from "prop-types";
 import { NomineeContext } from "../../../utils/contexts/NomineeContext";
 import { ItemCard } from "../ItemCard";
-import ReactDOM from "react-dom";
 import { Paginationator } from "../../molecules/Paginationator";
 export const ItemList = ({ page }) => {
   const [currentPage, setCurrentPage] = useState(page);
@@ -15,10 +15,10 @@ export const ItemList = ({ page }) => {
   );
 
   return (
-    <div className="flex flex-col px-72">
+    <div className="flex flex-col  px-72  xxl:px-48  xl:px-24 xmlg:px-10 lg:px-1">
       <div
         id="item-list-container"
-        className=" flex flex-wrap min-height-web-kit  gap-4 "
+        className=" flex flex-wrap min-height-web-kit  gap-4 items-center justify-center"
       >
         {currentNominees.map((element) => {
           return <ItemCard id={element.tournament_id}></ItemCard>;
@@ -42,3 +42,7 @@ export const ItemList = ({ page }) => {
 }}
 </NomineeContext.Consumer> */
 }
+
+ItemList.propTypes = {
+  page: PropTypes.number.isRequired,
+};

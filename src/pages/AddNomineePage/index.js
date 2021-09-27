@@ -14,7 +14,7 @@ export const AddNomineePage = () => {
   const [tournamentName, setTournamentName] = useState("");
   const [winnerName, setWinnerName] = useState("");
   const [imgUrl, setImgUrl] = useState("");
-  let history = useHistory();
+
   const { notifications, dismissNotification, notify } = useNotifications();
   setUpNotifications({
     defaultProps: {
@@ -51,9 +51,9 @@ export const AddNomineePage = () => {
         </div>
       </div>
 
-      <div className="input-wrapper w-full h-full mt-5 px-96 lg:px-24 lg:w-auto flex flex-col items-center justify-center ">
+      <div className="input-wrapper w-full h-full mt-5 px-96 md:px-10 lg:px-24 lg:w-auto flex flex-col items-center justify-center ">
         <TextBox classes="aceh-bold text-xl"> ADD NEW NOMINEE</TextBox>
-        <div className="input-container w-full h-full px-40  2xl:px-0">
+        <div className="input-container w-full h-full  px-40   xxl:px-28 xl:px-10 xmlg:px-0">
           <InputBox
             header="Tournament Name"
             onChange={setTournamentName}

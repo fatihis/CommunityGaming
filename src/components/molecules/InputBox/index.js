@@ -1,4 +1,5 @@
-import react from "react";
+import React from "react";
+import PropTypes from "prop-types";
 
 export const InputBox = ({ header, onChange }) => {
   return (
@@ -10,4 +11,9 @@ export const InputBox = ({ header, onChange }) => {
       />
     </div>
   );
+};
+
+InputBox.propTypes = {
+  onChange: PropTypes.func.isRequired,
+  header: PropTypes.string.isRequired,
 };

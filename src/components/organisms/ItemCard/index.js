@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { CardHeader } from "../../molecules/CardHeader";
 import { DetailContainer } from "../../molecules/DetailContainer";
 
@@ -13,7 +14,6 @@ export const ItemCard = ({ id }) => {
   );
 };
 
-// <div className="flex max-w-max">
-//   <VoteButton type="upvote" onClick={hey}></VoteButton>
-//   <VoteButton type="downvote" onClick={hey}></VoteButton>
-// </div>;
+ItemCard.propTypes = {
+  id: PropTypes.number.isRequired,
+};

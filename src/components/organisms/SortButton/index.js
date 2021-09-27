@@ -1,4 +1,5 @@
 import React, { useState, createRef, useContext } from "react";
+import PropTypes from "prop-types";
 import { createPopper } from "@popperjs/core";
 import { NomineeContext } from "../../../utils/contexts/NomineeContext";
 import { SimpleImage } from "../../atoms/SimpleImage";
@@ -25,11 +26,11 @@ export const SortButton = ({ color }) => {
   return (
     <>
       <div className="flex flex-wrap">
-        <div className="w-full sm:w-6/12 md:w-4/12 px-4">
+        <div className="w-full sm:w-6/12 md:w-4/12 ">
           <div className="relative inline-flex align-middle w-full">
             <button
               className={
-                "aceh-bold flex gap-3 font-bold uppercase text-md px-10 py-4  shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150 " +
+                "aceh-bold ml-3 items-center flex gap-3 font-bold uppercase text-md px-10 py-4  shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150 " +
                 bgColor
               }
               type="button"
@@ -79,4 +80,7 @@ export const SortButton = ({ color }) => {
       </div>
     </>
   );
+};
+SortButton.propTypes = {
+  color: PropTypes.func.isRequired,
 };

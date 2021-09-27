@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { TextBox } from "../../atoms/TextBox";
 
 export const SquaredTextBlock = ({ point }) => {
@@ -10,4 +11,8 @@ export const SquaredTextBlock = ({ point }) => {
       <TextBox classes="text-xxs  font-semibold">POINTS</TextBox>
     </div>
   );
+};
+
+SquaredTextBlock.propTypes = {
+  point: PropTypes.number.isRequired,
 };

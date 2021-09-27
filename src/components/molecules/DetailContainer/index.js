@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import { findTournaments } from "../../../utils/hooks/findTournaments";
+import PropTypes from "prop-types";
 import { TextBox } from "../../atoms/TextBox";
 import { ActionButton } from "../ActionButton";
 import { VoteButton } from "../VoteButton";
@@ -74,4 +74,8 @@ export const DetailContainer = ({ id }) => {
       <RemoveModal id={id} isOpen={isModalOpen} setIsOpen={setIsModalOpen} />
     </div>
   );
+};
+
+DetailContainer.propTypes = {
+  id: PropTypes.string.isRequired,
 };

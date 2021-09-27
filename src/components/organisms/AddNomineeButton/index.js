@@ -1,6 +1,5 @@
 import React from "react";
 import { SimpleImage } from "../../atoms/SimpleImage";
-
 import { ActionButton } from "../../molecules/ActionButton";
 import plusIcon from "../../../assets/plus.png";
 import { TextBox } from "../../atoms/TextBox";
@@ -12,7 +11,7 @@ export const AddNomineeButton = () => {
   };
   return (
     <ActionButton onClick={goAddNominee}>
-      <div className="flex turquoise items-center justify-center p-4 gap-1">
+      <div className="flex turquoise items-center ml-4 justify-center p-4 gap-1">
         <SimpleImage
           classes=""
           style={{ maxWidth: "1.1rem" }}
