@@ -6,7 +6,7 @@ export const NomineeContextProvider = ({ children }) => {
   );
 
   const addNominee = (data) => {
-    let nominees = NomineeList;
+    let nominees = NomineeList == null ? [] : NomineeList;
     let date = new Date();
     let today =
       ("00" + date.getDate()).slice(-2) +

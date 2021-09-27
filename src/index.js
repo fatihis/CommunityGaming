@@ -9,8 +9,6 @@ ReactDOM.render(
   <React.StrictMode>
     <NotificationsProvider>
       <NomineeContextProvider>
-        {/* <AddNomineePage /> */}
-        {/* <TestArea></TestArea> */}
         <RouterContainer />
       </NomineeContextProvider>
     </NotificationsProvider>
