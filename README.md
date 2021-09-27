@@ -34,7 +34,7 @@ Installation:
 
 To Run Test Suite:
 
-- (NOT WRITTEN YET)
+- 6 Test Suites, 9 Total
 
 `npm test` || `yarn run test`
 
