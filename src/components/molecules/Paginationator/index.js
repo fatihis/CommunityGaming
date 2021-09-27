@@ -17,6 +17,7 @@ export const Paginationator = ({
       {pageNumbers.map((number) =>
         number.toString() === currentPage ? (
           <ActionButton
+            key={number}
             onClick={() => (window.location.href = "/nominees/" + number)}
             classes="text-white bg-gray-600 px-2 py-2 ml-2 font-bold"
           >
@@ -24,6 +25,7 @@ export const Paginationator = ({
           </ActionButton>
         ) : (
           <ActionButton
+            key={number}
             onClick={() => (window.location.href = "/nominees/" + number)}
             classes="text-gray-600 px-2 py-2 ml-2 font-bold"
           >
