@@ -6,7 +6,6 @@ import {
   Route,
   Redirect,
 } from "react-router-dom";
-import TestArea from "../TestArea";
 import { AddNomineePage } from "../AddNomineePage";
 import Nominees from "../Nominees";
 export default function RouterContainer() {
