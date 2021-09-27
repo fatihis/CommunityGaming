@@ -49,15 +49,14 @@ To Visit App:
 ## Reflection
 
 - This was a 3 day project that focuses on maintainable and clean code
-- First time I am using redux, I did not have time to read documentation properly
 - Environment
     - React.js, TailwindCSS, Craco, ESLint, React testing library
 
 ### Dependencies
 
-"@craco/craco": "^6.3.0",
-  "@popperjs/core": "^2.10.1",
-  "@testing-library/jest-dom": "^5.11.4",
+    "@craco/craco": "^6.3.0",
+    "@popperjs/core": "^2.10.1",
+    "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
     "@testing-library/user-event": "^7.1.2"
