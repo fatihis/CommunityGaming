@@ -1,0 +1,54 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+    font-family: 'Aceh-Bold';
+    src: local('Aceh-Bold'), url("../../assets/fonts/Aceh-Bold.woff") format('woff');
+
+  }
+  @font-face {
+    font-family: 'Blooming-Elegant';
+    src: local('Blooming Elegant Sans Bold'), url("../../assets/fonts/Blooming\ Elegant\ Sans\ Bold.otf") format('opentype');
+
+  }
+
+@layer utilities {
+    .turquoise{
+        background-color:rgb(33,209,234)
+    }
+    .turquoise:hover{
+        background-color:rgb(22, 181, 204)
+    }
+    .turquoise-border{
+        border: 1px solid rgb(33,209,234) 
+
+    }
+    .blooming-elegant{
+        font-family: "Blooming-Elegant";
+
+    }
+    .aceh-bold{
+        font-family: "Aceh-Bold";
+    }
+    .text-xxs{
+        font-size: 0.70rem;
+        line-height: 0.75rem;
+    } 
+    .min-height-web-kit{
+        min-height: -webkit-fill-available;
+    }
+    .text-white{
+        color:white
+    }
+    .line-height-10{
+        line-height:10px
+    }
+    .text-green-6AD{
+        background-color:#6AD76E
+    }
+    .text-green-6AD:hover{
+        background-color:#34c139
+    }
+  }
+
