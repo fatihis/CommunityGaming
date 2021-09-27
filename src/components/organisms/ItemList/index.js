@@ -4,8 +4,8 @@ import { NomineeContext } from "../../../utils/contexts/NomineeContext";
 import { ItemCard } from "../ItemCard";
 import { Paginationator } from "../../molecules/Paginationator";
 export const ItemList = ({ page }) => {
-  const [currentPage, setCurrentPage] = useState(page);
-  const [nomineePerPage, setNomineePerPage] = useState(6);
+  const [currentPage] = useState(page);
+  const [nomineePerPage] = useState(6);
   const nomineeCtx = useContext(NomineeContext);
   const indexOfLastNominee = currentPage * nomineePerPage;
   const indexOfFirstNominee = indexOfLastNominee - nomineePerPage;
@@ -32,16 +32,6 @@ export const ItemList = ({ page }) => {
     </div>
   );
 };
-
-{
-  /* <NomineeContext.Consumer>
-{(ctx) => {
-  return ctx.NomineeList.map((element) => {
-    return <ItemCard id={element.tournament_id}></ItemCard>;
-  });
-}}
-</NomineeContext.Consumer> */
-}
 
 ItemList.propTypes = {
   page: PropTypes.number.isRequired,

@@ -28,7 +28,7 @@ export const DetailContainer = ({ id }) => {
 
   useEffect(() => {
     setDataState(nomineesCtx.getSingleElement(id));
-  }, [dataState]);
+  }, [dataState, id, nomineesCtx]);
 
   return (
     // detail padding

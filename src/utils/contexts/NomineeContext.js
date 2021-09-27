@@ -1,4 +1,4 @@
-import React, { useState, createContext, useEffect } from "react";
+import React, { useState, createContext } from "react";
 export const NomineeContext = createContext();
 export const NomineeContextProvider = ({ children }) => {
   const [NomineeList, setNomineeList] = useState(
@@ -32,7 +32,7 @@ export const NomineeContextProvider = ({ children }) => {
   };
   const getSingleElement = (id) => {
     let nominees = NomineeList;
-    var item = nominees.find((x) => x.tournament_id == id);
+    var item = nominees.find((x) => x.tournament_id === id);
     return item;
   };
   const getAllElements = () => {
@@ -40,7 +40,7 @@ export const NomineeContextProvider = ({ children }) => {
   };
   const removeNominee = (id) => {
     let nominees = NomineeList;
-    var foundIndex = nominees.findIndex((x) => x.tournament_id == id);
+    var foundIndex = nominees.findIndex((x) => x.tournament_id === id);
     nominees.splice(foundIndex, 1);
     setNomineeList(nominees);
     localStorage.setItem("NomineeList", JSON.stringify(nominees));
@@ -62,10 +62,10 @@ export const NomineeContextProvider = ({ children }) => {
       ("00" + date.getMinutes()).slice(-2);
     var foundIndex = nominees.findIndex((x) => x.tournament_id === id);
     let obj = nominees[foundIndex];
-    if (type == "up") {
+    if (type === "up") {
       Object.assign(nominees[foundIndex], { points: obj.points + 1 });
       Object.assign(nominees[foundIndex], { lastVoteDate: today });
-    } else if (type == "down" && obj.points !== 0) {
+    } else if (type === "down" && obj.points !== 0) {
       Object.assign(nominees[foundIndex], { points: obj.points - 1 });
       Object.assign(nominees[foundIndex], { lastVoteDate: today });
     }
@@ -83,7 +83,7 @@ export const NomineeContextProvider = ({ children }) => {
       nominees.sort((a, b) =>
         a.points > b.points
           ? 1
-          : a.points == b.points
+          : a.points === b.points
           ? new Date(a.lastVoteDate).getTime() - new Date() <
             new Date(b.lastVoteDate).getTime() - new Date()
             ? 1
@@ -95,7 +95,7 @@ export const NomineeContextProvider = ({ children }) => {
       nominees.sort((a, b) =>
         a.points < b.points
           ? 1
-          : a.points == b.points
+          : a.points === b.points
           ? new Date(a.lastVoteDate).getTime() - new Date() <
             new Date(b.lastVoteDate).getTime() - new Date()
             ? 1

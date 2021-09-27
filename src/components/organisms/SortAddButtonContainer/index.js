@@ -1,4 +1,4 @@
-import react from "react";
+import React from "react";
 import { AddNomineeButton } from "../AddNomineeButton";
 import { SortButton } from "../SortButton";
 

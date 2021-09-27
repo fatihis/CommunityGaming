@@ -15,7 +15,7 @@ export const Paginationator = ({
   return (
     <div className="paginator flex mt-6 mb-6 flex items-center justify-center">
       {pageNumbers.map((number) =>
-        number.toString() == currentPage ? (
+        number.toString() === currentPage ? (
           <ActionButton
             onClick={() => (window.location.href = "/nominees/" + number)}
             classes="text-white bg-gray-600 px-2 py-2 ml-2 font-bold"

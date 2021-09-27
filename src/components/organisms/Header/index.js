@@ -1,4 +1,4 @@
-import react from "react";
+import React from "react";
 import { SimpleImage } from "../../atoms/SimpleImage";
 import logo from "../../../assets/logo/logo-bg-removed-cropped.png";
 

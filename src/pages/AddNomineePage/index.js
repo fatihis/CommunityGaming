@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import { useHistory } from "react-router";
+
 import { TextBox } from "../../components/atoms/TextBox";
 import { ActionButton } from "../../components/molecules/ActionButton";
 import { InputBox } from "../../components/molecules/InputBox";
@@ -14,7 +14,6 @@ export const AddNomineePage = () => {
   const [tournamentName, setTournamentName] = useState("");
   const [winnerName, setWinnerName] = useState("");
   const [imgUrl, setImgUrl] = useState("");
-
   const { notifications, dismissNotification, notify } = useNotifications();
   setUpNotifications({
     defaultProps: {
@@ -35,9 +34,7 @@ export const AddNomineePage = () => {
       <Header />
       <NotificationsSystem
         notifications={notifications}
-        // 3. Pass the function used to dismiss a notification.
         dismissNotification={(id) => dismissNotification(id)}
-        // 4. Pass a builtIn theme or a custom theme.
         theme={bootstrapTheme}
       />
       <div className=" h-full mx-96 mt-10 2xl:mx-40 lg:mx-4 relative">
