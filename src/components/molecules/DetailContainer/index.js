@@ -77,5 +77,5 @@ export const DetailContainer = ({ id }) => {
 };
 
 DetailContainer.propTypes = {
-  id: PropTypes.string.isRequired,
+  id: PropTypes.any.isRequired,
 };
