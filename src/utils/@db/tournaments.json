@@ -1,0 +1,81 @@
+[
+{
+  "tournament_id" : 0,
+  "tournament_name" : "DOTA 2 Tournament",
+  "winner" : "unknownArtist[EG]",
+  "lastVoteDate" : "13.2.2021 13:55",
+  "points": 12
+},
+{
+  "tournament_id" : 1,
+  "tournament_name" : "Valorant Tournament by RIOT",
+  "winner" : "BLACK_widow",
+  "lastVoteDate" : "13.2.2021 13:14",
+  "points": 9
+},
+{
+  "tournament_id" : 2,
+  "tournament_name" : "LOL Tournament 1000$ Prize",
+  "winner" : "MassiveAttack[TR]",
+  "lastVoteDate" : "13.2.2021 10:33",
+  "points": 9
+},
+{
+  "tournament_id" : 3,
+  "tournament_name" : "Hitman 3 Fast Contracts ",
+  "winner" : "Agent74",
+  "lastVoteDate" : "16.03.2021 15:19",
+  "points": 8
+},
+{
+  "tournament_id" : 4,
+  "tournament_name" : "RDR2 Online Tournament",
+  "winner" : "thePunisher",
+  "lastVoteDate" : "02.01.2021 22:35",
+  "points": 8
+},
+{
+  "tournament_id" : 5,
+  "tournament_name" : "GTA 5 Online Tournament",
+  "winner" : "silenceDeath",
+  "lastVoteDate" : "21.05.2021 18:33",
+  "points": 5
+},
+{
+  "tournament_id" : 6,
+  "tournament_name" : "FIFA 21 Tournament",
+  "winner" : "the3skrPops",
+  "lastVoteDate" : "14.01.2021 23:30",
+  "points": 3
+},
+{
+  "tournament_id" : 7,
+  "tournament_name" : "FIFA 99 Classique Tournament",
+  "winner" : "OldGuy",
+  "lastVoteDate" : "16.03.2021 15:16",
+  "points": 1
+},
+{
+  "tournament_id" : 8,
+  "tournament_name" : "FIFA 99 Classique Tournament",
+  "winner" : "OldGuy",
+  "lastVoteDate" : "16.03.2021 15:16",
+  "points": 1
+},
+{
+  "tournament_id" : 9,
+  "tournament_name" : "FIFA 99 Classique Tournament",
+  "winner" : "OldGuy",
+  "lastVoteDate" : "16.03.2021 15:16",
+  "points": 1
+},
+{
+  "tournament_id" : 10,
+  "tournament_name" : "FIFA 99 Classique Tournament",
+  "winner" : "OldGuy",
+  "lastVoteDate" : "16.03.2021 15:16",
+  "points": 1
+}
+
+
+]
