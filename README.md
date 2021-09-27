@@ -54,16 +54,17 @@ To Visit App:
     - React.js, TailwindCSS, Craco, ESLint, React testing library
 
 ### Dependencies
-  "@craco/craco": "^6.3.0",
+
+"@craco/craco": "^6.3.0",
   "@popperjs/core": "^2.10.1",
   "@testing-library/jest-dom": "^5.11.4",
-  "@testing-library/react": "^11.1.0",
-  "@testing-library/user-event": "^12.1.10",
-  "@testing-library/user-event": "^7.1.2"
-  "autoprefixer": "^9.8.6"
-  "eslint-plugin-react": "^7.25.2"
-  "postcss": "^7.0.36"
-  "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.214"
+    "@testing-library/react": "^11.1.0",
+    "@testing-library/user-event": "^12.1.10",
+    "@testing-library/user-event": "^7.1.2"
+    "autoprefixer": "^9.8.6"
+    "eslint-plugin-react": "^7.25.2"
+    "postcss": "^7.0.36"
+    "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.214"
 
 ## Help
 
