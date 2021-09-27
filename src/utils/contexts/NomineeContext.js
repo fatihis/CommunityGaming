@@ -1,6 +1,4 @@
 import React, { useState, createContext, useEffect } from "react";
-import NomineeJson from "../@db/tournaments.json";
-import { useHistory } from "react-router-dom";
 export const NomineeContext = createContext();
 export const NomineeContextProvider = ({ children }) => {
   const [NomineeList, setNomineeList] = useState(
@@ -9,11 +7,23 @@ export const NomineeContextProvider = ({ children }) => {
 
   const addNominee = (data) => {
     let nominees = NomineeList;
+    let date = new Date();
+    let today =
+      ("00" + date.getDate()).slice(-2) +
+      "." +
+      ("00" + (date.getMonth() + 1)).slice(-2) +
+      "." +
+      date.getFullYear() +
+      " " +
+      ("00" + date.getHours()).slice(-2) +
+      ":" +
+      ("00" + date.getMinutes()).slice(-2);
+
     nominees.push({
       tournament_id: nominees.length,
       tournament_name: data.name,
       winner: data.winner,
-      lastVoteDate: "13.2.2021 13:14",
+      lastVoteDate: today,
       points: 0,
       imgUrl: data.imgUrl,
     });
@@ -39,12 +49,25 @@ export const NomineeContextProvider = ({ children }) => {
 
   const voteNominee = (type, id) => {
     let nominees = NomineeList;
+    let date = new Date();
+    let today =
+      ("00" + date.getDate()).slice(-2) +
+      "." +
+      ("00" + (date.getMonth() + 1)).slice(-2) +
+      "." +
+      date.getFullYear() +
+      " " +
+      ("00" + date.getHours()).slice(-2) +
+      ":" +
+      ("00" + date.getMinutes()).slice(-2);
     var foundIndex = nominees.findIndex((x) => x.tournament_id === id);
     let obj = nominees[foundIndex];
     if (type == "up") {
       Object.assign(nominees[foundIndex], { points: obj.points + 1 });
+      Object.assign(nominees[foundIndex], { lastVoteDate: today });
     } else if (type == "down" && obj.points !== 0) {
       Object.assign(nominees[foundIndex], { points: obj.points - 1 });
+      Object.assign(nominees[foundIndex], { lastVoteDate: today });
     }
     var element = nominees[foundIndex];
     nominees.splice(foundIndex, 1);
@@ -61,7 +84,7 @@ export const NomineeContextProvider = ({ children }) => {
         a.points > b.points
           ? 1
           : a.points == b.points
-          ? new Date(a.lastVoteDate).getTime() - new Date() >
+          ? new Date(a.lastVoteDate).getTime() - new Date() <
             new Date(b.lastVoteDate).getTime() - new Date()
             ? 1
             : -1
