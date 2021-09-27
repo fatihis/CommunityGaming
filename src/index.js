@@ -1,14 +1,21 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
-
+import React from "react";
+import ReactDOM from "react-dom";
+import "./utils/styles/BaseStyles.css";
+import reportWebVitals from "./reportWebVitals";
+import { NomineeContextProvider } from "./utils/contexts/NomineeContext";
+import RouterContainer from "./pages/RouterContainer";
+import { NotificationsProvider } from "reapop";
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <NotificationsProvider>
+      <NomineeContextProvider>
+        {/* <AddNomineePage /> */}
+        {/* <TestArea></TestArea> */}
+        <RouterContainer />
+      </NomineeContextProvider>
+    </NotificationsProvider>
   </React.StrictMode>,
-  document.getElementById('root')
+  document.getElementById("root")
 );
 
 // If you want to start measuring performance in your app, pass a function
