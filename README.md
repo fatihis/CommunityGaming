@@ -24,7 +24,7 @@ An application for displaying, voting and adding tournament nominees.
 
 ## Deployment
 
--ON PROGRESS
+https://community-gaming-fatihis.vercel.app/
 
 ## Installation and Setup Instructions
 
