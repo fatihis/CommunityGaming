@@ -19,26 +19,20 @@ const customStyles = {
 
 Modal.setAppElement("body");
 
-export const RemoveModal = ({ id, isOpen, setIsOpen }) => {
+export const RemoveModal = ({ isOpen, setIsOpen, item }) => {
   const nomineesCtx = useContext(NomineeContext);
 
   function closeModal() {
     setIsOpen(false);
   }
   const removeElement = () => {
-    nomineesCtx.removeNominee(id);
-    console.log(id + " deleted");
+    nomineesCtx.removeNominee(item.tournament_id);
     closeModal();
   };
 
   return (
     <div className="h-full mb-8">
-      <Modal
-        isOpen={isOpen}
-        onRequestClose={closeModal}
-        style={customStyles}
-        contentLabel="Example Modal"
-      >
+      <Modal isOpen={isOpen} onRequestClose={closeModal} style={customStyles}>
         <div className=" w-96 h-60  xs:max-w-max">
           <div className="w-full h-12 flex items-start justify-start border-b-2">
             <TextBox classes="font-bold text-xl " className="text">
@@ -50,7 +44,7 @@ export const RemoveModal = ({ id, isOpen, setIsOpen }) => {
               {" "}
               <p className="aceh-bold">Do you want to remove "</p>
               <p className="aceh-bold  font-extrabold">
-                {nomineesCtx.getSingleElement(id).tournament_name}
+                {item.tournament_name}
               </p>
             </div>
             <p className="aceh-bold">from nominees?</p>
