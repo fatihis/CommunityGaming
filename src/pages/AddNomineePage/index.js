@@ -1,5 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
-
+import React, { useContext, useState } from "react";
 import { TextBox } from "../../components/atoms/TextBox";
 import { ActionButton } from "../../components/molecules/ActionButton";
 import { InputBox } from "../../components/molecules/InputBox";
@@ -24,9 +23,6 @@ export const AddNomineePage = () => {
   const goBack = () => {
     window.location.href = "/nominees/1";
   };
-  useEffect(() => {
-    console.log("hey");
-  }, []);
 
   const ctxNominee = useContext(NomineeContext);
   return (

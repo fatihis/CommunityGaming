@@ -30,7 +30,7 @@ export const SortButton = ({ color }) => {
           <div className="relative inline-flex align-middle w-full">
             <button
               className={
-                "aceh-bold ml-3 items-center flex gap-3 font-bold uppercase text-md px-10 py-4  shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150 " +
+                "aceh-bold ml-3 items-center flex gap-3 font-bold uppercase text-md px-10 py-4 md:py-1 shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150 " +
                 bgColor
               }
               type="button"
