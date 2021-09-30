@@ -100,7 +100,7 @@ export const NomineeContextProvider = ({ children }) => {
         a.points > b.points
           ? 1
           : a.points === b.points
-          ? isNewer(a.lastVoteDate, b.lastVoteDate)
+          ? !isNewer(a.lastVoteDate, b.lastVoteDate)
             ? 1
             : -1
           : -1
@@ -111,7 +111,7 @@ export const NomineeContextProvider = ({ children }) => {
         a.points < b.points
           ? 1
           : a.points === b.points
-          ? isNewer(a.lastVoteDate, b.lastVoteDate)
+          ? !isNewer(a.lastVoteDate, b.lastVoteDate)
             ? 1
             : -1
           : -1
