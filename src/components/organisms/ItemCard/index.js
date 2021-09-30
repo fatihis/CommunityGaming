@@ -3,13 +3,13 @@ import PropTypes from "prop-types";
 import { CardHeader } from "../../molecules/CardHeader";
 import { DetailContainer } from "../../molecules/DetailContainer";
 
-export const ItemCard = ({ id }) => {
+export const ItemCard = ({ item, id }) => {
   return (
     <div className="w-64 m-4">
       <div>
-        <CardHeader id={id}></CardHeader>
+        <CardHeader item={item}></CardHeader>
       </div>
-      <DetailContainer id={id}></DetailContainer>
+      <DetailContainer item={item}></DetailContainer>
     </div>
   );
 };
