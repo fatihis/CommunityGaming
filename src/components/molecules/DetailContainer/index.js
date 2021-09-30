@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useState } from "react";
 import PropTypes from "prop-types";
 import { TextBox } from "../../atoms/TextBox";
 import { ActionButton } from "../ActionButton";
@@ -9,14 +9,7 @@ import { RemoveModal } from "../RemoveModal";
 import { NomineeContext } from "../../../utils/contexts/NomineeContext";
 import { useHistory } from "react-router";
 
-export const DetailContainer = ({ id }) => {
-  const [dataState, setDataState] = useState({
-    tournament_id: 0,
-    tournament_name: "",
-    winner: "",
-    lastVoteDate: "",
-    points: 0,
-  });
+export const DetailContainer = ({ item }) => {
   const nomineesCtx = useContext(NomineeContext);
   const history = useHistory();
 
@@ -26,37 +19,32 @@ export const DetailContainer = ({ id }) => {
     setIsModalOpen(true);
   };
 
-  useEffect(() => {
-    setDataState(nomineesCtx.getSingleElement(id));
-  }, [dataState, id, nomineesCtx]);
-
   return (
-    // detail padding
     <div className="detail-container px-4 flex flex-col   bg-gray-100 ">
       <TextBox classes="blooming-elegant text-2xl whitespace-nowrap  overflow-ellipsis overflow-hidden font-extrabold text-black mb-1">
-        {dataState.tournament_name}
+        {item.tournament_name}
       </TextBox>
       <div className="flex">
         <TextBox classes="blooming-elegant line-height-10 text-lg overflow-ellipsis font-bold text-black">{`Winner : `}</TextBox>
-        <TextBox classes="text-xs overflow-ellipsis text-black">{`${dataState.winner}`}</TextBox>
+        <TextBox classes="text-xs overflow-ellipsis text-black">{`${item.winner}`}</TextBox>
       </div>
       <div className="flex mb-4">
         <TextBox classes="blooming-elegant line-height-10 text-lg  overflow-ellipsis font-bold text-black">{`Last Vote Date : `}</TextBox>
-        <TextBox classes="text-xs  overflow-ellipsis text-black">{` ${dataState.lastVoteDate}`}</TextBox>
+        <TextBox classes="text-xs  overflow-ellipsis text-black">{` ${item.lastVoteDate}`}</TextBox>
       </div>
       <div className="relative">
         <div className="absolute left-0 flex max-w-max ">
           <VoteButton
             type="upvote"
             onClick={() => {
-              nomineesCtx.voteNominee("up", id);
+              nomineesCtx.voteNominee("up", item.tournament_id);
               history.push("/nominees/1");
             }}
           ></VoteButton>
           <VoteButton
             type="downvote"
             onClick={() => {
-              nomineesCtx.voteNominee("down", id);
+              nomineesCtx.voteNominee("down", item.tournament_id);
               history.push("/nominees/1");
             }}
           ></VoteButton>
@@ -71,7 +59,11 @@ export const DetailContainer = ({ id }) => {
           </ActionButton>
         </div>
       </div>
-      <RemoveModal id={id} isOpen={isModalOpen} setIsOpen={setIsModalOpen} />
+      <RemoveModal
+        item={item}
+        isOpen={isModalOpen}
+        setIsOpen={setIsModalOpen}
+      />
     </div>
   );
 };
