@@ -7,13 +7,13 @@ import {
   Redirect,
 } from "react-router-dom";
 import { AddNomineePage } from "../AddNomineePage";
-import Nominees from "../Nominees";
+import NomineesPage from "../NomineesPage";
 export default function RouterContainer() {
   return (
     <Router>
       <Switch>
         <Route path="/nominees/:page">
-          <Nominees />
+          <NomineesPage />
         </Route>
         <Route exact path="/add-nominees">
           <AddNomineePage />

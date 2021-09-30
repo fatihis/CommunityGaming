@@ -4,7 +4,7 @@ import { Header } from "../../components/organisms/Header";
 import { ItemList } from "../../components/organisms/ItemList";
 import { SortAddButtonContainer } from "../../components/organisms/SortAddButtonContainer";
 import { NomineeContext } from "../../utils/contexts/NomineeContext";
-export default function Nominees() {
+export default function NomineesPage() {
   const { page } = useParams();
   const nomineeCtx = useContext(NomineeContext);
   useEffect(() => {
