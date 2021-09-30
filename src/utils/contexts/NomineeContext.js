@@ -1,10 +1,27 @@
-import React, { useState, createContext } from "react";
+import React, { useState, useEffect, createContext } from "react";
+import dummyJson from "../@db/tournaments.json";
 export const NomineeContext = createContext();
 export const NomineeContextProvider = ({ children }) => {
   const [NomineeList, setNomineeList] = useState(
-    JSON.parse(localStorage.getItem("NomineeList" || "[]"))
+    JSON.parse(localStorage.getItem("NomineeList" || "[]")) == null ||
+      JSON.parse(localStorage.getItem("NomineeList" || "[]")).length == 0
+      ? dummyJson
+      : JSON.parse(localStorage.getItem("NomineeList" || "[]"))
   );
-
+  const [NomineeSlice, setNomineeSlice] = useState([]);
+  const [currentPage, setCurrentPage] = useState("1");
+  useEffect(() => {
+    paginate();
+  }, [currentPage]);
+  useEffect(() => {
+    if (
+      JSON.parse(localStorage.getItem("NomineeList" || "[]")) == null ||
+      JSON.parse(localStorage.getItem("NomineeList" || "[]")).length == 0
+    ) {
+      localStorage.setItem("NomineeList", JSON.stringify(dummyJson));
+    }
+    paginate();
+  }, []);
   const addNominee = (data) => {
     let nominees = NomineeList == null ? [] : NomineeList;
     let date = new Date();
@@ -36,15 +53,17 @@ export const NomineeContextProvider = ({ children }) => {
     return item;
   };
   const getAllElements = () => {
+    paginate();
     return NomineeList;
   };
   const removeNominee = (id) => {
     let nominees = NomineeList;
     var foundIndex = nominees.findIndex((x) => x.tournament_id === id);
     nominees.splice(foundIndex, 1);
+
     setNomineeList(nominees);
     localStorage.setItem("NomineeList", JSON.stringify(nominees));
-    window.location.href = "/nominees/1";
+    paginate();
   };
 
   const voteNominee = (type, id) => {
@@ -69,23 +88,19 @@ export const NomineeContextProvider = ({ children }) => {
       Object.assign(nominees[foundIndex], { points: obj.points - 1 });
       Object.assign(nominees[foundIndex], { lastVoteDate: today });
     }
-    var element = nominees[foundIndex];
-    nominees.splice(foundIndex, 1);
-    nominees.splice(0, 0, element);
     setNomineeList(nominees);
     localStorage.setItem("NomineeList", JSON.stringify(nominees));
-    window.location.href = "/nominees/1";
   };
 
   const sortNomineesBy = (type) => {
+    debugger;
     let nominees = NomineeList;
     if (type === "less") {
       nominees.sort((a, b) =>
         a.points > b.points
           ? 1
           : a.points === b.points
-          ? new Date(a.lastVoteDate).getTime() - new Date() <
-            new Date(b.lastVoteDate).getTime() - new Date()
+          ? isNewer(a.lastVoteDate, b.lastVoteDate)
             ? 1
             : -1
           : -1
@@ -96,8 +111,7 @@ export const NomineeContextProvider = ({ children }) => {
         a.points < b.points
           ? 1
           : a.points === b.points
-          ? new Date(a.lastVoteDate).getTime() - new Date() <
-            new Date(b.lastVoteDate).getTime() - new Date()
+          ? isNewer(a.lastVoteDate, b.lastVoteDate)
             ? 1
             : -1
           : -1
@@ -105,17 +119,40 @@ export const NomineeContextProvider = ({ children }) => {
     }
     setNomineeList(nominees);
     localStorage.setItem("NomineeList", JSON.stringify(nominees));
-    window.location.href = "/nominees/1";
+    paginate();
+  };
+  const isNewer = (dateOne, dateTwo) => {
+    var today = new Date();
+    var dateOneSeconds = (new Date(dateOne).getTime() - today.getTime()) / 1000;
+    var dateTwoSeconds = (new Date(dateTwo).getTime() - today.getTime()) / 1000;
+    const isNew = dateOneSeconds > dateTwoSeconds ? true : false;
+    return isNew;
+  };
+
+  const paginate = () => {
+    const nomineePerPage = 6;
+    const indexOfLastNominee = currentPage * nomineePerPage;
+    const indexOfFirstNominee = indexOfLastNominee - nomineePerPage;
+    setNomineeSlice(
+      JSON.parse(localStorage.getItem("NomineeList")) === null &&
+        NomineeList == null
+        ? 0
+        : NomineeList.slice(indexOfFirstNominee, indexOfLastNominee)
+    );
   };
   const contextValue = {
     NomineeList,
+    NomineeSlice,
     setNomineeList,
+    paginate,
     voteNominee,
     addNominee,
     removeNominee,
     getSingleElement,
     getAllElements,
     sortNomineesBy,
+    currentPage,
+    setCurrentPage,
   };
 
   return (

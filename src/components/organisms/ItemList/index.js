@@ -5,18 +5,12 @@ import { ItemCard } from "../ItemCard";
 import { Paginationator } from "../../molecules/Paginationator";
 import { TextBox } from "../../atoms/TextBox";
 export const ItemList = ({ page }) => {
-  const [currentPage] = useState(page);
-  const [nomineePerPage] = useState(6);
-  const [isListEmpty, setIsListEmpty] = useState(
-    JSON.parse(localStorage.getItem("NomineeList")) === null
-  );
   const nomineeCtx = useContext(NomineeContext);
-  const indexOfLastNominee = currentPage * nomineePerPage;
-  const indexOfFirstNominee = indexOfLastNominee - nomineePerPage;
-  const currentNominees = isListEmpty
-    ? 0
-    : nomineeCtx.NomineeList.slice(indexOfFirstNominee, indexOfLastNominee);
 
+  const [isListEmpty] = useState(
+    JSON.parse(localStorage.getItem("NomineeList")) === null &&
+      nomineeCtx.NomineeList == null
+  );
   return (
     <div className="flex flex-col  px-72  xxl:px-48  xl:px-24 xmlg:px-10 lg:px-1">
       <div
@@ -24,8 +18,14 @@ export const ItemList = ({ page }) => {
         className=" flex flex-wrap min-height-web-kit  gap-4 items-center justify-center"
       >
         {!isListEmpty &&
-          currentNominees.map((element) => {
-            return <ItemCard id={element.tournament_id}></ItemCard>;
+          nomineeCtx.NomineeSlice.map((element) => {
+            return (
+              <ItemCard
+                key={element.id}
+                item={element}
+                id={element.tournament_id}
+              ></ItemCard>
+            );
           })}
       </div>
 
